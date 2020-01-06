@@ -1,0 +1,13 @@
+<li [ngClass]="{'list-group-item': true,
+  'list-group-item-success': postlistLoveIts > 0,
+  'list-group-item-danger': postlistLoveIts < 0}">
+  <div [ngStyle]="{'float':'left'}">
+    <h2 [ngStyle]="{'font-weight': 'bold'}">{{ postlistTitle }}</h2>
+  </div>
+  <div [ngStyle]="{'float':'right'}">
+    <p [ngStyle]="{'color':'grey','font-style':'italic'}">{{ lastUpdate | async | date: 'MM/dd/yyyy hh:mm a'}}</p>
+  </div>
+  <p [ngStyle]="{'display':'inline-block'}">{{ postlistContent }}</p>
+  <button class="btn btn-success" (click)="onClickPositive()">({{ postlistLoveIts }}) Love it!</button>
+  <button class="btn btn-danger" (click)="onClickNegative()">Don't love it!</button>
+</li>
